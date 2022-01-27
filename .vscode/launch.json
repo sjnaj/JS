@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch domTest2.html",
+            "file": "${workspaceFolder}/domTest2.html",
+            "pathMappings": [
+                {
+                    "url": "file://",
+                    "path": ""
+                }
+            ]
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch basic2.html",
+            "file": "${workspaceFolder}/basic2.html"
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch test.html",
+            "file": "${workspaceFolder}/test.html"
+        },
+        {
+            "name": "Launch test.js",
+            "program": "${workspaceFolder}/test.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        }
+    ]
+}

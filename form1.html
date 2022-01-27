@@ -1,0 +1,84 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-18 16:22:48
+ * @LastEditTime: 2022-01-26 00:56:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script async="async" src="canvas-effect.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="action_page.php" method="post">post更安全-->
+    <!--novalidate取消原生检验(requred等会失效)，一般倾向于加上，将检验工作交给js-->
+    <form target="_blank" method="post" autocomplete="on" spellcheck="off" id="form1">
+        <fieldset>
+            <!--disabled，被禁用的元素是不可用和不可点击的-->
+            <legend>Personal information</legend>
+            <fieldset>
+                <legend>Name information:</legend>
+                First Name:<br />
+                <input type="text" name="firstname" required="required" />
+
+                </br>
+                Last Name:<br />
+                <input type="text" name="lastname" required="required" />
+
+
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Sex information:</legend>
+                <input type="radio" name="sex" value="male" checked="checked" />Male
+                <br />
+                <input type="radio" name="sex" value="female" />Female
+                <br />
+            </fieldset>
+            <fieldset>
+                <legend>Car:</legend>
+                <select name="cars">
+                    <!--默认选择第一个-->
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Area:</legend>
+                <textarea name="area" rows="2" cols="20" placeholder="Please input your area"></textarea>
+            </fieldset>
+            <input list="browsers" placeholder="Select browser" required="required" />
+            <datalist id="browsers">
+                <option value="Internet Explorer">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+            <!-- <button type="button" onclick="alert('Hello World!')">Click Me!</button>-->
+            <br />
+            <input type="submit" value="提交" />
+
+            <!--value默认为'提交'-->
+        </fieldset>
+    </form>
+    <h1>input form 属性</h1>
+    <p>form 属性指定输入元素所属的表单。</p>
+    <p>下面的 "Extern" 字段在 form 元素之外，但仍是表单的一部分。</p>
+
+    <label for="extren">Extern</label>
+    <input type="text" id="extern" name=extern" form="form1">
+
+    <!--formaction formtarget 用于覆盖form中的属性-->
+
+</body>
+

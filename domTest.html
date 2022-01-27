@@ -1,0 +1,49 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-24 18:04:36
+ * @LastEditTime: 2022-01-24 20:53:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="test"></p>
+    <img src="image/006BFMdqgy1goiuljfmt4j31uo1cj7wm.jpg" width="500px" />
+    <div id="main">
+        <p class="mainTest"></p>
+        <p id="main2"></p>
+        <img src="image/006BFMdqgy1goiuljfmt4j31uo1cj7wm.jpg">
+    </div>
+    <script>
+        var test = document.getElementById("test");
+        test.innerHTML = "Test";
+        document.getElementsByTagName("img")[0].src = "image/oo.jpg";//返回对应tag的对象数组，修改图片
+        document.getElementsByTagName("img")[1].src = "";
+        var main = document.getElementById("main");
+        main.getElementsByClassName("mainTest")[0].innerHTML = "mainTest";
+        document.getElementById("main2").innerHTML = "main2";//id属性是唯一的，只能通过document获取,class和tagName可以用document也可以用嵌套的作用域获取
+    </script>
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+        Name: <input type="text" name="fname">
+        <input type="submit" value="Submit">
+        <!--也可用按钮替代-->
+    </form>
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

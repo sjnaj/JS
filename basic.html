@@ -1,0 +1,434 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-14 10:55:59
+ * @LastEditTime: 2022-01-16 19:29:42
+-->
+<!--!+tab得到基本框架-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>basic</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--使用添加到 <head> 部分的CSS样式信息对 HTML 进行格式化-->
+    <!--内联样式-->
+    <style type="text/css">
+        h1 {
+            color: white
+        }
+    </style>
+    <!--外部样式-->
+    <!--最终显示以靠后的为准-->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+<h4 id="basic.html">basic</h4>
+<a href="basic2.html#basic2">跳转到basic2</a>
+
+<!--<body bgcolor="yellow">,应该用样式代替属性和标签,样式最好放在外部的CSS文件里，便于管理,bgcolor不能显示颜色板-->
+<h3>应该避免使用下面这些标签和属性：</h3>
+
+<table border="1">
+    <tr>
+        <th>标签</th>
+        <th>描述</th>
+    </tr>
+
+    <tr>
+        <td>&lt;center&gt;</td>
+        <!--&lt：小于号，&gt:大于号-->
+        <td>定义居中的内容。</td>
+    </tr>
+
+    <tr>
+        <td>&lt;font&gt; 和 &lt;basefont&gt;</td>
+        <td>定义 HTML 字体。</td>
+    </tr>
+
+    <tr>
+        <td>&lt;s&gt; 和 &lt;strike&gt;</td>
+        <td>定义删除线文本</td>
+    </tr>
+
+    <tr>
+        <td>&lt;u&gt;</td>
+        <td>定义下划线文本</td>
+    </tr>
+
+    <tr>
+        <th>属性</th>
+        <th>描述</th>
+    </tr>
+
+    <tr>
+        <td>align</td>
+        <td>定义文本的对齐方式</td>
+    </tr>
+
+    <tr>
+        <td>bgcolor</td>
+        <td>定义背景颜色</td>
+    </tr>
+
+    <tr>
+        <td>color</td>
+        <td>定义文本颜色</td>
+    </tr>
+</table>
+
+<p>对于以上这些标签和属性：请使用样式代替！</p>
+
+<!-- <body style="background-color: rgb(228, 228, 47)>"-->
+<!-- <body background="/i/eg_background.jpg">-->
+
+<body>
+    <a href="#e">end</a>
+    <!--锚(acnchor),跳转到对应位置，可用于制作目录，ctrl k+v的预览不能使用-->
+    <h1 style="text-align:center;">标题1</h1>
+    <h2 style="text-align:right;">标题2</h2al>
+        <h3>标题3</h3>
+        <p style="font-family:verdana;background-color:rgb(45, 173, 40);color:rgb(192, 168, 32);font-size:15px">
+            段落1<br />段落2</p>
+        <!--在开始标签中添加斜杠，比如 <br />，是关闭空元素的正确方法-->
+        <a href="http://www.w3school.com.cn">This is a link</a>
+        <a href="http://www.w3school.com.cn" style="text-decoration: none">This is a link without underline</a>
+        <p>
+            <!--也可以使用图像来作链接：-->
+            <a href="/example/html/lastpage.html">
+                <img border="0" src="/i/eg_buttonnext.gif" />
+            </a>
+        </p>
+        <a href="http://www.w3school.com.cn/" target="_blank">Visit W3School!</a>
+        <p>
+            <!--如果把链接的 target 属性设置为 "_blank"，该链接会在新窗口中打开,还有_top等选项，悬浮可查看-->
+        </p>
+        <hr />
+        <!--绝对路径基于file协议，在本机上不能正常访问，相对路径基于http协议，相对于文件根目录-->
+        <img src="image/006BFMdqgy1goiuljfmt4j31uo1cj7wm.jpg" alt="图片" width="104" height="142" />
+        <!--当浏览器无法载入图像时，替换文本属性可告诉读者他们失去的信息。此时，浏览器将显示这个替代性的文本而不是图像。
+            为页面上的图像都加上替换文本属性是个好习惯，这样有助于更好的显示信息，并且对于那些使用纯文本浏览器的人来说是非常有用的。-->
+        <hr />
+        <p>图像 <img src="https://www.w3school.com.cn/i/eg_cute.gif" align="bottom"> 在文本中</p>
+        <!--默认-->
+
+        <p>图像 <img src="https://www.w3school.com.cn/i/eg_cute.gif" align="middle"> 在文本中</p>
+
+        <p>图像 <img src="https://www.w3school.com.cn/i/eg_cute.gif" align="top"> 在文本中</p>
+        <hr />
+        <!--图像映射-->
+        <p>请点击图像上的星球，把它们放大。</p>
+        <!--在预览中会失效，需要ctrl shift l浏览器打开-->
+        <img src="https://www.w3school.com.cn/i/eg_planets.jpg" border="0" usemap="#planetmap" alt="Planets" />
+
+        <map name="planetmap" id="planetmap">
+
+            <area shape="circle" coords="180,139,14" href="https://www.w3school.com.cn/example/html/venus.html"
+                target="_blank" alt="Venus" />
+            <area shape="circle" coords="129,161,10" href="https://www.w3school.com.cn/example/html/mercur.html"
+                target="_blank" alt="mercur" />
+            <area shape="rect" coords="0,0,110,260" href="https://www.w3school.com.cn/example/html/sun.html"
+                target="_blank" alt="Sun" />
+            <!--"0,0" 是图像左上角的坐标-->
+        </map>
+        <!--文本格式化-->
+
+        <hr />
+        <b>This text is bold</b>
+
+        <br />
+
+        <strong>This text is strong</strong>
+
+        <br />
+
+        <big>This text is big</big>
+
+        <br />
+
+        <em>This text is emphasized</em>
+
+        <br />
+
+        <i>This text is italic</i>
+
+        <br />
+
+        <small>This text is small</small>
+
+        <br /> This text contains
+        <sub>subscript</sub>
+
+        <br /> This text contains
+        <sup>superscript</sup>
+
+        <hr />
+
+        <!--预格式文本,保留源格式-->
+        <pre>
+            for i= 1 to 10
+               print i;
+            next i;
+        </pre>
+        <hr />
+        <!--下面这些标签常用于显示计算机/编程代码-->
+
+        <!--不解析html显示,简短的可用反斜杠转义-->
+        <xmp>
+            <h1>hello</h1>
+        </xmp>
+        <!--定义计算机输出示例-->
+        <samp>
+            demo.example.com login: Apr 12 09:10:17
+            Linux 2.6.10-grsec+gg3+e+fhs6b+nfs+gr0501+++p3+c4a+gr2b-reslog-v6.189
+        </samp>
+        <code>for i= 1 to 10
+        print i;
+     next i; </code>
+     <!--code,pre嵌套保留源格式-->
+        <code>
+        <pre>
+        var person = {
+            firstName:"Bill",
+            lastName:"Gates",
+            age:50,
+            eyeColor:"blue"
+        }
+        </pre>
+        </code>
+        <br />
+        <kbd>Keyboard input</kbd>
+        <br />
+        <tt>Teletype text</tt>
+        <br />
+        <samp>Sample text</samp>
+        <br />
+        <var>Computer variable</var>
+        <br />
+        <hr />
+        <!--显示地址-->
+        <address>
+            Written by <a href="mailto:webmaster@example.com">Donald Duck</a>.<br>
+            <!--点击邮件链接可以跳转到发送邮件界面,空格要用%20代替以正确显示-->
+            Visit us at:<br>
+            Example.com<br>
+            Box 564, Disneyland<br>
+            USA
+        </address>
+        <hr />
+        <!--缩写,鼠标悬浮显示-->
+        <abbr title="etcetera">etc.</abbr>
+        <br />
+        <acronym title="World Wide Web">WWW</acronym>
+        <p><abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。</p>
+        <p><dfn><abbr title="World Health Organization">WHO</abbr></dfn> 成立于 1948 年。</p>
+        <!--缩写定义,等价于上一个-->
+        <p><dfn title="World Health Organization">WHO</dfn> 成立于 1948 年。</p>
+        <!--缩写定义,缩写下面没有下划线-->
+
+        <hr />
+        <!--修改文字方向-->
+
+        <bdo dir="rtl">
+            Here is some Hebrew text
+        </bdo>
+        <hr /> 这是长的引用：
+        <blockquote style="background-color: rgb(112, 17, 17);">
+            这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+        </blockquote>
+
+        这是短的引用：
+        <q>
+            这是短的引用。
+        </q>
+        <hr />
+        <p>一打有 <del>二十</del> <ins>十二</ins> 件。</p>
+        <dfn>PI:3,1415926</dfn>
+        <br />
+        <!--斜体，一般用于著作标题-->
+        <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+        <!--条件注释,注意方括号的位置-->
+        <!--[if IE 8]>
+    .... some HTML here ....
+         <![endif]-->
+        <hr />
+        <!--表格-->
+        <h4>一行一列</h4>
+        <table>
+            <tr>
+                <td>100</td>
+            </tr>
+        </table>
+        <h4>一行三列</h4>
+        <table>
+            <tr>
+                <td>100</td>
+                <td>200</td>
+                <td>300</td>
+            </tr>td>
+        </table>
+        <h4>两行两列带边框，表头和背景颜色</h4>
+        <table border="1" style="background-color: deeppink;">
+            <tr>
+                <th style="background-color:coral">Name</th>
+                <th style="background-color:cornflowerblue">ID</th>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>300</td>
+                <td>400</td>
+            </tr>
+        </table>
+        <h4>带边框的空位</h4>
+        <table border="1" ;width="200" ;height="200">
+            <!--默认单位为像素px-->
+            <tr>
+                <td>100</td>
+                <td width="30"></td>
+                <!--单字符宽度的空位：<td>&nbsp;</td>-->
+                <!--no-breaking 空格是一个字符实体。-->
+                <td>300</td>
+            </tr>
+        </table>
+        <h4>横跨两列的单元格：</h4>
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <th colspan="2">电话</th>
+            </tr>
+            <tr>
+                <td>Bill Gates</td>
+                <td>555 77 854</td>
+                <td>555 77 855</td>
+            </tr>
+        </table>
+
+        <h4>横跨两行的单元格：</h4>
+        <table border="1">
+            <tr>
+                <th>姓名</th>
+                <td>Bill Gates</td>
+            </tr>
+            <tr>
+                <th rowspan="2">电话</th>
+                <td>555 77 854</td>
+            </tr>
+            <tr>
+                <td>555 77 855</td>
+            </tr>
+        </table>
+        <h4>带有 cellpadding：</h4>
+        <!--格边距-->
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+        <h4>带有 cellspacing：</h4>
+        <!--格间距-->
+        <table border="1" cellspacing="10">
+            <tr>
+                <td>First</td>
+                <td>Row</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Row</td>
+            </tr>
+        </table>
+        <table width="400" border="1">
+            <tr>
+                <th align="left">消费项目....</th>
+                <th align="right">一月</th>
+                <th align="right">二月</th>
+            </tr>
+            <tr>
+                <td align="left">衣服</td>
+                <td align="right">$241.10</td>
+                <td align="right">$50.20</td>
+            </tr>
+            <tr>
+                <td align="left">化妆品</td>
+                <td align="right">$30.00</td>
+                <td align="right">$44.45</td>
+            </tr>
+            <tr>
+                <td align="left">食物</td>
+                <td align="right">$730.40</td>
+                <td align="right">$650.00</td>
+            </tr>
+            <tr>
+                <th align="left">总计</th>
+                <th align="right">$1001.50</th>
+                <th align="right">$744.65</th>
+            </tr>
+        </table>
+        <hr />
+        <p>Table with frame="box":</p>
+        <table frame="box">
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+
+        <p>Table with frame="above":</p>
+        <table frame="above">
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+        <hr />
+        <!--unordered list-->
+        <ul>
+            <li>Coffee</li>
+            <li>Pepper</li>
+        </ul>
+        <a name="e">end</a>
+        <!--ordered list-->
+        <ol>
+            <li>Coffee</li>
+            <li>Pepper</li>
+        </ol>
+        <h4>一个嵌套列表：</h4>
+        <ul>
+            <li>咖啡</li>
+            <li>茶
+                <ul>
+                    <li>红茶</li>
+                    <li>绿茶</li>
+                </ul>
+            </li>
+            <li>牛奶</li>
+        </ul>
+        <h4>一个定义列表：</h4>
+
+        <dl>
+            <dt>计算机</dt>
+            <dd>用来计算的仪器 ... ...</dd>
+            <dt>显示器</dt>
+            <dd>以视觉方式显示信息的装置 ... ...</dd>
+        </dl>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-15 19:11:26
+ * @LastEditTime: 2022-01-18 14:36:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>basic2</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--type="text/css的用处是告诉浏览器，这段标签内包含的内容是css或text，也就是说如果某种浏览器（特别是wap等手机浏览器械、）不能识别css的，会将代码认为text，从而不显示也不报错。-->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    <style type="text/css">
+        .cities {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            padding: 20;
+        }
+
+        span.red {
+            color: red
+        }
+
+        #myheader {
+            background-color: lightblue;
+            color: black;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+    <!--padding：边距-->
+
+    <!--导入js背景-->
+    <script src="canvas-effect.js" async="async"></script>
+    <!--基本地址和目标-->
+    <!--使用指定的基本 URL 来解析所有的相对 URL,这其中包括 <a>、<img>、<link>、<form> 标签中的 URL。-->
+    <!--  <base href="http://www.w3school.com.cn/i/" />-->
+    <base target="_blank" />
+</head>
+
+<h4 id="basic2">basic2</h4>
+<a href="basic.html#basic">跳转到basic</a>
+
+<body>
+    <!--div:块级元素-->
+    <div class="cities">
+        <h2>London</h2>
+        <p>
+            London is the capital city of England. It is the most populous city in the United Kingdom, with a
+            metropolitan area of over 13 million inhabitants.
+        </p>
+    </div>
+
+    <div class="cities">
+        <h2>Paris</h2>
+        <p>Paris is the capital and most populous city of France.</p>
+    </div>
+    <!--span：内联元素-->
+    <h1>My <span class="red">Important</span> Heading</h1>
+
+    <h2 id="my-header">myHeader</h2>
+    <!--id和class的区别在于class可复用，id只能由一个页面中的一个元素使用-->
+
+    <!--嵌套显示网页-->
+    <iframe src="basic.html" width="600" height="300" name="basic"></iframe>
+    <!--frameborder="0":消除边框-->
+    <br />
+    <!--点击后在target指向的出窗口打开链接-->
+    <a href="http://www.w3school.com.cn" target="basic">w3school</a>
+
+
+    <p>本例把 "Hello JavaScript!" 写入 id="demo" 的 HTML 元素内：</p>
+    <p id="demo"></p>
+
+
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        document.getElementById("demo").style.fontSize = "25px";
+        document.getElementById("demo").style.color = "red";
+        document.getElementById("demo").style.backgroundColor = "yellow";
+    </script>
+
+    <!--html5语义元素-->
+    <div>
+
+        <header>
+            <h1>City Gallery</h1>
+        </header>
+
+        <nav>
+            London
+            <br> Paris
+            <br> Tokyo
+            <br>
+        </nav>
+
+        <section>
+            <h1>London</h1>
+            <p>
+                London is the capital city of England. It is the most populous city in the United Kingdom, with a
+                metropolitan area of over 13 million inhabitants.
+            </p>
+            <p>
+                Standing on the River Thames, London has been a major settlement for two millennia, its history going
+                back to its founding by the Romans, who named it Londinium.
+            </p>
+            <figure>
+                <img src="https://th.bing.com/th/id/R.7653309408948b56b6f310e59575d128?rik=e1OT157M4Viyng&riu=http%3a%2f%2fwww.ukvisitorguide.cn%2fwp-content%2fuploads%2f2015%2f01%2flondon-768x981.png&ehk=EtqeLiM9MdybDgMwHfcDdpnp4y1OFUaLVJo1HvStTuw%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Norway img" width="304" height="228">
+                <figcaption>Fig1. - The Pulpit Pock, Norway.</figcaption>
+            </figure>
+        </section>
+
+        <aside>
+            It's aside
+        </aside>
+        <details>
+            It's details
+        </details>
+
+
+
+        <footer>
+            Copyright W3School.com.cn
+        </footer>
+    </div>
+    <div id="Demo">
+        Demo!
+    </div>
+    <script type="text/javascript" src="test.js"></script>
+    <p>我将显示 A B C</p>
+    <p>我将显示 &#65; &#66; &#67;</p>
+    <h1>Emoji</h1>
+
+    <p>&#128512;</p>
+    <p style="font-size:48px">&#128525;</p>
+
+
+</body>
+
+</html>

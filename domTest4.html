@@ -1,0 +1,41 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-25 17:02:17
+ * @LastEditTime: 2022-01-25 23:19:41
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <script>
+        var pElem = document.createElement('p');
+        var oText = document.createTextNode("这是旧文本");//文本是段落的子元素
+        var nText = document.createTextNode("这是新文本");
+        pElem.appendChild(oText);//添加文本节点
+        pElem.setAttribute("id", "test");
+        document.body.appendChild(pElem);//向body添加段落节点qq
+        var btn = document.createElement('button');
+        btn.setAttribute("onclick", "pElem.removeChild(pElem.firstChild);");
+        btn.appendChild(document.createTextNode('删除文本'));
+        document.body.appendChild(btn);
+        btn = document.createElement("button");
+        btn.setAttribute("onclick", "if (pElem.hasChildNodes()) pElem.replaceChild(nText,pElem.firstChild); else  pElem.appendChild(nText);");
+        btn.appendChild(document.createTextNode("替换为或添加新文本"));
+        document.body.appendChild(btn);
+        // if (node.parentNode) {//不直接引用父的情况下删除子
+     // 从DOM树中删除node节点,除非它已经被删除了.
+    // node.parentNode.removeChild(node);
+    // }
+    </script>
+
+</body>
+
+</html>

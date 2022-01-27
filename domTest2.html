@@ -1,0 +1,109 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-24 21:18:28
+ * @LastEditTime: 2022-01-25 11:06:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 onclick="this.innerHTML = 'Hello!'">点击此文本！</h1>
+    <h1 onclick="changeText(this)">点击此文本！</h1>
+    <script>
+        function changeText(id) {
+            id.innerHTML = "谢谢";
+        }
+    </script>
+    <button id="btn">时间是?</button>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("btn").onclick = displayDate; //注意函数不能带参数列表，嵌入在标签内时要带
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+            x.style.background = "yellow";
+        }
+    </script>
+    请输入您的名字：<input type="text" id="fname" onchange="myFunction()">
+    <!---焦点离开时执行函数-->
+    <p>离开输入字段时，会触发一个函数，将输入文本转换为大写，并改变背景色。</p>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+        style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+        请把鼠标移上来</div>
+
+    <script>
+        function mOver(obj) {
+            obj.innerHTML = "谢谢您"
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "请把鼠标移上来"
+        }
+    </script>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+        style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+        点击鼠标</div>
+
+    <script>
+        function mDown(obj) {
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML = "松开鼠标";
+        }
+
+        function mUp(obj) {
+            obj.style.backgroundColor = "#D94A38";
+            obj.innerHTML = "谢谢您";
+        }
+    </script>
+    <p>此例使用 addEventListener() 方法在同一按钮上添加许多事件。</p>
+    <button id="myBtn">试一试</button> ​
+    <p id="_demo"></p>
+    ​<p>单击按钮以删除监听程序。</p>
+    <button onclick="removeHandler()">删除</button>
+    <script>
+        var x = document.getElementById("myBtn");
+        x.addEventListener("mouseover", _myFunction); //true为捕获模式，点击内层的会先执行外层的click，false为冒泡模式，从内层开始执行，默认为false
+        x.addEventListener("click", mySecondFunction);//注意触发事件名称没有on
+        x.addEventListener("mouseout", myThirdFunction);
+        function removeHandler() {//注意不要出现函数重名和字符串两侧的空格
+            x.removeEventListener("mouseover", _myFunction);//添加和删去时参数尽量保持一致，特别是第三个参数
+            x.removeEventListener("click", mySecondFunction);
+            x.removeEventListener("mouseout", myThirdFunction);
+        }
+        function _myFunction() {
+            document.getElementById("_demo").innerHTML += "Moused over!<br>";
+        }
+
+        function mySecondFunction() {
+            document.getElementById("_demo").innerHTML += "Clicked!<br>";
+        }
+
+        function myThirdFunction() {
+            document.getElementById("_demo").innerHTML += "Moused out!<br>";
+        }
+
+    </script>
+    <img src="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg">
+    <!--
+    var x = document.getElementById("myBtn");
+    if (x.addEventListener) {                    // 针对主流浏览器，除了 IE 8 及更正版本
+        x.addEventListener("click", myFunction);
+    } else if (x.attachEvent) {                  // 针对 IE 8 及更早版本,attachEvent中的this的值会变成 window 对象的引用而不是触发事件的元素
+        x.attachEvent("onclick", myFunction);
+    } -->
+</body>
+
+</html>

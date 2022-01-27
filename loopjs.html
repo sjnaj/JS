@@ -1,0 +1,87 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-25 23:28:38
+ * @LastEditTime: 2022-01-27 13:54:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <script>
+        function dump_props(obj, obj_name) {
+            var result = "name and value lists:<br>";
+            for (let i in obj) {
+                result += obj_name + "." + i + " = " + obj[i] + "<br>";
+            }
+            result += "<hr>";
+            return result;
+        }
+        var car = {
+            make: "Ford",
+            model: "Mustang",
+        };
+        document.write(dump_props(car, "car"));//console显示时用\n换行
+        var myDiv = document.createElement("div");
+        myDiv.appendChild(document.createTextNode("Node 1"));
+        myDiv.appendChild(document.createTextNode("Node 2"));
+        myDiv.appendChild(document.createTextNode("Node 3"));
+        document.body.appendChild(myDiv);
+        function dump_Nodes(obj, obj_name) {
+            var result = "Text node lists of " + obj_name + ":<br>";
+            for (let i of obj)//类似其它语言的for in
+                result += i.nodeValue + "<br>";
+            result += "<hr>";
+            return result;
+        }
+        document.write(dump_Nodes(myDiv.childNodes, "myDiv"));//遍历NodeList 对象
+        document.close();
+
+    </script>
+    <form name="selectForm">
+        <p>
+            <label for="musicTypes">Choose some music types, Hold CTRL to select multiple options :</label>
+            <select id="musicTypes" name="musicTypes" multiple="multiple">
+                <!--multiple:可多选-->
+                <option selected="selected">R&B</option>
+                <!--蓝调音乐-->
+                <option>爵士</option>
+                <option>布鲁斯</option>
+                <option>新纪元</option>
+                <option>古典</option>
+                <option>歌剧</option>
+            </select>
+        </p>
+        <p><input id="btn" type="button" value="选择了多少个选项?" /></p>
+        <p id="res"></p>
+    </form>
+
+    <script>
+        function howMany(selectObject) {
+            var numberSelected = 0;
+            for (let i = 0; i < selectObject.options.length; i++) {
+                if (selectObject.options[i].selected) {
+                    numberSelected++;
+                }
+            }
+            return numberSelected;
+        }
+
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {//直接定义的函数不用加引号
+            document.getElementById("res").innerHTML = "选择选项的数量是" + howMany(document.selectForm.musicTypes);//等同于howMany(document.forms["selectForm"]["musicTypes"],中括号访问和.访问等价)
+        });
+
+    </script>
+
+
+</body>
+
+</html>

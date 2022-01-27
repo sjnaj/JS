@@ -1,0 +1,53 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-23 18:54:40
+ * @LastEditTime: 2022-01-25 13:46:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <scripts async="async" src="canvas-effect.js"></scripts>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>调查问卷</h1>
+    <form method="post" target="_blank" autocomplete="on" spellcheck="false">
+        <p>username:</p>
+        <input type="text" name="username" required="required" maxlength="10" placeholder="maxlength is 10"
+            autofocus="autofocus" />
+        <p>password:</p>
+        <input type="password" name="password" pattern="[A-z]|[0-9]" placeholder="maxlength is 20,number or letter"
+            required="required" maxlength="20/>
+        <hr />
+        <p>birthday:</p>
+        <input type=" date" name="birthday" required="required" />
+        <br />
+        <input type="radio" name="sex" value="male" checked>Male
+        <br>
+        <input type="radio" name="sex" value="female">Female
+        <hr />
+        <!--复选框-->
+        <input type="checkbox" name="vehicle" value="Bike">I have a bike
+        <br>
+        <input type="checkbox" name="vehicle" value="Car">I have a car
+        <p>favcolor:</p>
+        <input type="color" name="favcolor">
+        <hr />
+        <p>email:</p>
+        <input type="email" name="email" required="required">
+        <p>Telephone:</p>
+        <input type="tel" name="usrtel">
+        <hr />
+        <input type="submit" value="Submit" />
+
+    </form>
+
+</body>
+
+</html>

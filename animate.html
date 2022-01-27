@@ -1,0 +1,59 @@
+<!-- It moves a red square from the top left corner of the screen to the bottom right corner. -->
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-24 21:09:05
+ * @LastEditTime: 2022-01-25 13:19:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <p><button onclick="myMove()">单击我</button></p>
+
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+
+    <script>
+        function myMove() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            var id = setInterval(frame, 5);//每5ms执行一次frame函数
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);//到达边界停止执行
+                } else {
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";//top和left决定矩形区域的位置，赋值需要转为字符串形式
+                }
+            }
+        }
+    </script>
+
+</html>

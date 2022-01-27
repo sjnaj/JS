@@ -1,0 +1,73 @@
+<!--
+ * @Author: fengsc
+ * @Date: 2022-01-25 14:28:37
+ * @LastEditTime: 2022-01-25 23:20:59
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>||Working with elements||</title>
+</head>
+
+<body>
+    <div id="div1">The text above has been created dynamically.</div>
+    <script>
+        document.body.onload = addElement;//给定资源加载时触发
+
+        function addElement() {
+            // create a new div element
+            const newDiv = document.createElement("div");
+
+            // and give it some content
+            const newContent = document.createTextNode("Hi there and greetings!");
+
+            // add the text node to the newly created div
+            newDiv.appendChild(newContent);
+
+            // add the newly created element and its content into the DOM
+            if (document.body.hasChildNodes()) {//如果body有子节点
+                const currentDiv = document.body.firstChild;
+                document.body.insertBefore(newDiv, currentDiv);//currentDiv为null时插入到末尾
+            }
+            //parentDiv.insertBefore(sp1, sp2.nextSibling)//sp1插入到sp2之后
+            //childNode[0]==firstChild==innerHTML
+        }</script>
+    <ul>
+        <li>nodeName是只读的</li>
+        <li>元素节点的nodeName等同于标签名(H1,P，大写)</li>
+        <li>属性界定的nodeName等同于属性名(id，小写)</li>
+        <li>文本节点的 nodeName 总是 "#text"</li>
+        <li>文档节点的 nodeName 总是 "#document"</li>
+        <li>等等</li>
+    </ul>
+    This is some html:
+    <div id="d1">Hello world</div>
+    <!-- Example of comment 也是一个节点-->
+    Text <span>Text</span>
+    Text<br />
+    <svg height="20" width="20">
+        <circle cx="10" cy="10" r="5" stroke="black" stroke-width="1" fill="red" />
+    </svg>
+    <hr>
+    <output id="result">Not calculated yet.</output>
+    <script>
+        let node = document.getElementsByTagName("body")[0].firstChild;
+        // document.querySelectorAll("body");老式浏览器
+        let result = "Node names and node values are:<br/>";
+        while (node) {
+            result += node.nodeName +":"+node.nodeValue+ "<br/>";
+            node = node.nextSibling;
+        }
+        result += "Attributes name and value of circle <br/>";
+        let cirAtts = document.getElementsByTagName("circle")[0].attributes;
+        for (let att of cirAtts) {//不能用nextSibling
+            result += att.nodeName +":"+att.nodeValue+ "<br/>";
+        }
+        const output = document.getElementById("result");
+        output.innerHTML = result; 
+    </script>
+
+</body>
+
+</html>

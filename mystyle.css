@@ -1,0 +1,144 @@
+body {
+    /*background:transparent !important;*/
+    background-color: rgba(137, 43, 226, 0.432);
+    /* background-image:url('https://img2020.cnblogs.com/blog/35695/202112/35695-20211231183207147-1260271608.jpg')*/
+}
+
+h1 {
+    color: black;
+    text-align: center
+}
+
+h2 {
+    color: aquamarine
+}
+
+h3 {
+    color: orangered
+}
+
+h4 {
+    color: indianred
+}
+
+xmp {
+    background-color: rgba(150, 90, 35, 0.329);
+    color: rgb(20, 40, 223)
+}
+
+pre {
+    background-color: black;
+    color: white
+}
+
+table {
+    border-collapse: collapse;
+    /*边缘折叠为单一边框*/
+}
+
+table,
+th,
+td {
+    border: 1px solid rgb(58, 6, 6);
+}
+
+header {
+    background-color: rgb(184, 15, 15);
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+nav {
+    line-height: 30px;
+    background-color: #eeeeee;
+    height: 300px;
+    width: 100px;
+    float: left;
+    padding: 5px;
+}
+
+section {
+    width: 350px;
+    float: left;
+    padding: 10px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 5px;
+}
+
+input {
+    outline-style: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 5px;
+    font-family: "Microsoft soft";
+}
+
+input[type="radio"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #ffffff;
+    border: solid 1px #dddddd;
+    -webkit-border-radius: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    cursor: default;
+    -webkit-appearance: none;
+    /**隐藏原生控件**/
+}
+
+input[type="radio"]:checked {
+    background-color: #04c9e8;
+    border: solid 1px #00adc8;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    text-align: center;
+    background-clip: padding-box;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 400;
+    font-size: .86em;
+    border-radius: .3rem;
+    width: 10em;
+    height: 3em;
+    margin-bottom: 1.2em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+label {
+    padding-left: 10px;
+    font-size: 16px;
+    z-index: 2;
+    color: #247e12;
+    line-height: 40px;
+    height: 40px;
+    display: block;
+}
+
+select{
+    /*清除select的边框样式*/
+    border: none;
+    /* 清除select聚焦时候的边框颜色 */
+    outline: none;
+    width: 50%;
+    height: 100px;
+    line-height: 40px;
+    /* 通过padding-left的值让文字居中 */
+    padding-left: 60px;
+}
