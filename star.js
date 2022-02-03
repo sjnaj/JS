@@ -1,7 +1,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-17 19:47:33
- * @LastEditTime: 2022-01-17 19:47:33
+ * @LastEditTime: 2022-01-28 17:26:55
  */
 // 音量大小,0.01-1
 
@@ -89,21 +89,6 @@ Star.prototype.draw = function() {
 
 for (var i = 0; i < maxStars; i++) {
     new Star();
-}
-
-function animation() {
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = 0.5;                                 //尾巴
-    ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
-    ctx.fillRect(0, 0, w, h)
-
-    ctx.globalCompositeOperation = 'lighter';
-    for (var i = 1,
-    l = stars.length; i < l; i++) {
-        stars[i].draw();
-    };
-
-    window.requestAnimationFrame(animation);
 }
 
 animation();

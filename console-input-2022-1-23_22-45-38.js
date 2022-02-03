@@ -1,15 +1,23 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-23 22:45:53
- * @LastEditTime: 2022-01-25 23:27:56
+ * @LastEditTime: 2022-01-28 14:57:43
  */
 function greetMe(user) {
     console.log('Hi ' + user);
 }
 greetMe('Alice');
-var x = (+"1.1") + (+"1.1");
+var x = (+"1.1") + (+"1.1"); //单双引号等价
+console.log(`the result is ${1.1+1.1}`); //只能用反引号
 console.log(x);
 console.log(parseFloat("1.1"));
+let age = prompt('How old are you?', 100); //第二个参数为可选的placeholder
+
+alert(`You are ${age} years old!`); // You are 100 years old!
+
+let isBoss = confirm("Are you the boss?");
+
+alert(isBoss); // 如果“确定”按钮被按下，则显示 true
 var a;
 if ((a + 2) === NaN)
     console.log("a+2 is a NaN");
@@ -45,7 +53,5 @@ var names = "Orange Trump ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ";
 var nameList = names.split(/\s*;\s*/); //匹配一个分号及紧接其前后所有可能出现的连续的空白符，剔除匹配的部分分割存放在新数组
 console.log(nameList);
 var b = new Boolean(false);
-if (b) ;//结果视为真,值为false的boolean对象和false(布尔值)不同，前者在条件语句中视为真，
+if (b); //结果视为真,值为false的boolean对象和false(布尔值)不同，前者在条件语句中视为真，
 if (b == true); // 结果视为假
-
-  
