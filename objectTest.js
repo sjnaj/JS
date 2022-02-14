@@ -1,7 +1,8 @@
+/* eslint-disable no-inner-declarations */
 /*
  * @Author: fengsc
  * @Date: 2022-01-29 12:28:01
- * @LastEditTime: 2022-02-03 11:20:27
+ * @LastEditTime: 2022-02-05 11:21:43
  */
 "use strict";
 {// let user = new Object(); // “构造函数” 的语法
@@ -11,6 +12,7 @@
         age: 30,
         "likes birds": true  // 多词属性名必须加引号
     };
+
     console.log(user.name);
     console.log(user["name"]);
     console.log(user["likes birds"]);
@@ -201,23 +203,23 @@ admin.f = sayHi;
 // 函数内部的 "this" 是“点符号前面”的那个对象
 user.f(); // John（this == user）
 admin.f(); // Admin（this == admin）
-function sayHi() {
-    console.log(this);
-}
+// function sayHi() {
+//     console.log(this);
+// }
 
-sayHi(); // undefined
+// sayHi(); // undefined
 //在这种情况下，严格模式下的 this 值为 undefined。如果我们尝试访问 this.name，将会报错。
 
 // 在非严格模式的情况下，this 将会是全局对象（浏览器中的 window，(node.js中是一些系统变量)）。这是一个历史行为，"use strict" 已经将其修复了。
 {
-    function makeUser() {
-        return {
-            name: "John",
-            ref: this
-        };
-    }
+    // function makeUser() {
+    //     return {
+    //         name: "John",
+    //         ref: this
+    //     };
+    // }
 
-    let user = makeUser();
+    // let user = makeUser();
 
     // console.log(user.ref.name); // Error: Cannot read property 'name' of undefined
     //   设置 this 的规则不考虑对象定义。只有调用那一刻才重要。
@@ -259,7 +261,7 @@ sayHi(); // undefined
         }
     }
 
-       let user = new User("Jack");
+    let user = new User("Jack");
 
     console.log(user.name); // Jack
     console.log(user.isAdmin); // false
@@ -275,6 +277,223 @@ sayHi(); // undefined
 }
 {
     let user = {}; // 一个没有 "address" 属性的 user 对象
-    console.log(user.address.street); // Error!
+    // console.log(user.address.street); // Error!
+    console.log(user.address && user.address.street && user.address.street.name); // undefined（不报错）
+    //可选链 ?. 是一种访问嵌套对象属性的安全的方式。即使中间的属性不存在，也不会出现错误。
+    console.log(user?.address?.street); // undefined（不报错）
+    user = null;
+    console.log(user?.address)//user不存在也不会报错， undefined
+    // /?. 语法使其前面的值成为可选值，但不会对其后面的起作用。
+    //如果 ?. 左边部分不存在，就会立即停止运算（“短路效应”）。
+    //所以，如果后面有任何函数调用或者副作用，它们均不会执行。
+    //     应该只将 ?. 使用在一些东西可以不存在的地方。
+
+    // 例如，如果根据我们的代码逻辑，user 对象必须存在，但 address 是可选的，那么我们应该这样写 user.address?.street，而不是这样 user?.address?.street。
+
+    // 所以，如果 user 恰巧因为失误变为 undefined，我们会看到一个编程错误并修复它。否则，代码中的错误在不恰当的地方被消除了，这会导致调试更加困难。
+    //如果未声明变量 user，那么 user?.anything 会触发一个错误
+    //另外两种用法
+    //    obj?.[prop] —— 如果 obj 存在则返回 obj[prop]，否则返回 undefined。
+    // obj.method?.() —— 如果 obj.method 存在则调用 obj.method()，否则返回 undefined。
+
+
+}
+{
+    //“Symbol” 值表示唯一的标识符。
+    // let id = Symbol();
+    // id 是描述为 "id" 的 Symbol
+    let id = Symbol("id");
+    let id1 = Symbol("id");
+    let id2 = Symbol("id");
+    console.log(id1 == id2); // false Symbol 保证是唯一的。即使我们创建了许多具有相同描述的 Symbol，它们的值也是不同。描述只是一个标签，不影响任何东西。
+    //JavaScript 中的大多数值都支持字符串的隐式转换。例如，我们可以console.log 任何值，都可以生效。Symbol 比较特殊，它不会被自动转换。
+    //console.log(id);
+    console.log(id);
+    console.log(id.toString());//与上面等价，但可以alert
+    console.log(id.description); // id 获取 symbol.description 属性
+    {
+        let user = { // 属于另一个代码
+            name: "John"
+        };
+
+        let id = Symbol("id");
+
+        user[id] = 1;
+
+        console.log(user[id]); // 我们可以使用 Symbol 作为键来访问数据
+        //因为 user 对象属于其他的代码，那些代码也会使用这个对象，所以我们不应该在它上面直接添加任何字段，这样很不安全。
+        //但是你添加的 Symbol 属性不会被意外访问到，第三方代码根本不会看到它，所以使用 Symbol 基本上不会有问题。
+        //但如果我们处于同样的目的，使用字符串 "id" 而不是用 symbol，那么 就会 出现冲突 
+        // 另外，假设另一个脚本希望在 user 中有自己的标识符，以实现自己的目的。这可能是另一个 JavaScript 库，因此脚本之间完全不了解彼此。
+
+    }
+    {
+        let id = Symbol("id");
+        let user = {
+            name: "John",
+            age: 30,
+            [id]: 123
+        };
+
+        for (let key in user) console.log(key); // name, age (no symbols)
+
+        // 使用 Symbol 任务直接访问
+        //Object.keys(user) 也会忽略它们。这是一般“隐藏符号属性”原则的一部分。如果另一个脚本或库遍历我们的对象，它不会意外地访问到符号属性。
+        console.log("Direct: " + user[id]);
+        let clone = Object.assign({}, user);//Object.assign 会同时复制字符串和 symbol 属性：
+
+        console.log(clone[id]); // 123
+    }
+    {
+        // 通常所有的 Symbol 都是不同的，即使它们有相同的名字。但有时我们想要名字相同的 Symbol 具有相同的实体。
+        // 例如，应用程序的不同部分想要访问的 Symbol "id" 指的是完全相同的属性。
+
+        //为了实现这一点，这里有一个 全局 Symbol 注册表。我们可以在其中创建 Symbol 并在稍后访问它们，它可以确保每次访问相同名字的 Symbol 时，返回的都是相同的 Symbol。
+
+        //要从注册表中读取（不存在则创建）Symbol，请使用 Symbol.for(key)。
+
+        //该调用会检查全局注册表，如果有一个描述为 key 的 Symbol，则返回该 Symbol，否则将创建一个新 Symbol（Symbol(key)），并通过给定的 key 将其存储在注册表中
+        // 从全局注册表中读取
+        let id = Symbol.for("id"); // 如果该 Symbol 不存在，则创建它
+
+        // 再次读取（可能是在代码中的另一个位置）
+        let idAgain = Symbol.for("id");
+
+        // 相同的 Symbol
+        console.log(id === idAgain); // true
+        console.log(Symbol.keyFor(id)); // id 通过全局 Symbol 返回一个名字
+        console.log(Symbol.keyFor(idAgain));//id
+        console.log(Symbol.keyFor(id1));//undefined
+
+        //         JavaScript 内部有很多“系统” Symbol，我们可以使用它们来微调对象的各个方面。
+
+        // 它们都被列在了 众所周知的 Symbol 表的规范中：
+
+        //     Symbol.hasInstance
+        //     Symbol.isConcatSpreadable
+        //     Symbol.iterator
+        //     Symbol.toPrimitive
+        //     ……等等。
+
+        //从技术上说，Symbol 不是 100% 隐藏的。有一个内建方法 Object.getOwnPropertySymbols(obj) 允许我们获取所有的 Symbol。
+        //还有一个名为 Reflect.ownKeys(obj) 的方法可以返回一个对象的 所有 键，包括 Symbol。
+        //所以它们并不是真正的隐藏。但是大多数库、内建方法和语法结构都没有使用这些方法。
+
+    }
 }
 
+{
+
+    // 所有的对象在布尔上下文（context）中均为 true。所以对于对象，不存在 to-boolean 转换，只有字符串和数值转换。
+    // 数值转换发生在对象相减或应用数学函数时。例如，Date 对象（将在 日期和时间 一章中介绍）可以相减，date1 - date2 的结果是两个日期之间的差值。
+    // 至于字符串转换 —— 通常发生在我们像console.log(obj) 这样输出一个对象和类似的上下文中。
+    let user = { name: "john" };
+    console.log(user);
+    //下面是三个类型转换的变体，被称为 “hint”，在 规范 中有详细介绍（译注：当一个对象被用在需要原始值的上下文中时，例如，在console.log 或数学运算中，对象会被转换为原始值）：
+    // "string"
+
+    // 对象到字符串的转换，当我们对期望一个字符串的对象执行操作时，如 “alert”：
+
+    // "number"
+
+    // 对象到数字的转换，例如当我们进行数学运算时：
+
+    // "default"
+
+    // 在少数情况下发生，当运算符“不确定”期望值的类型时。
+    // 当二元加法得到对象类型的参数时，它将依据 "default" hint 来对其进行转换。
+
+    // 此外，如果对象被用于与字符串、数字或 symbol 进行 == 比较，这时到底应该进行哪种转换也不是很明确，因此使用 "default" hint。
+
+
+    // 为了进行转换，JavaScript 尝试查找并调用三个对象方法：
+
+    // 调用 obj[Symbol.toPrimitive](hint) —— 带有 symbol 键 Symbol.toPrimitive（系统 symbol）的方法，如果这个方法存在的话，
+    // 否则，如果 hint 是 "string" —— 尝试 obj.toString() 和 obj.valueOf()，无论哪个存在。
+    // 否则，如果 hint 是 "number" 或 "default" —— 尝试 obj.valueOf() 和 obj.toString()，无论哪个存在。
+
+    // 默认情况下，普通对象具有 toString 和 valueOf 方法：
+
+    // toString 方法返回一个字符串 "[object Object]"。
+    // valueOf 方法返回对象自身。
+
+    {
+        let user = {
+            name: "John",
+            money: 1000,
+
+            [Symbol.toPrimitive](hint) {
+                console.log(`hint: ${hint}`);
+                return hint == "string" ? `{name: "${this.name}"}` : this.money;
+            }
+        };
+
+        // 转换演示：
+        console.log(user); // hint: string -> {name: "John"}
+        console.log(+user); // hint: number -> 1000
+        console.log(user + 500); // hint: default -> 1500
+    }
+    {
+        let user = {
+            name: "John",
+            money: 1000,
+
+            // 对于 hint="string"
+            toString() {
+                return `{name: "${this.name}"}`;
+            },
+
+            // 对于 hint="number" 或 "default"
+            valueOf() {
+                return this.money;
+            }
+
+        };
+
+        console.log(user); // toString -> {name: "John"}
+        console.log(+user); // valueOf -> 1000
+        console.log(user + 500); // valueOf -> 1500}
+
+
+
+    }
+    {
+        let user = {
+            name: "John",
+
+            toString() {
+                return this.name;
+            }
+        };
+
+        console.log(user); // toString -> John
+        console.log(user + 500); // toString -> John500
+        //如果没有 Symbol.toPrimitive 和 valueOf，toString 将处理所有原始转换。
+    }
+    //由于历史原因，如果 toString 或 valueOf 返回一个对象，则不会出现 error，但是这种值会被忽略（就像这种方法根本不存在）。
+    //相反，Symbol.toPrimitive 必须 返回一个原始值，否则就会出现 error。
+    {
+        //让 a==1&&a==2&&a==3的值为true
+        let a = { value: 0 };
+        a[Symbol.toPrimitive] = function (hint) {
+            console.log(hint); // default
+            return this.value += 1;
+        }
+        console.log(a == 1 && a == 2 && a == 3); // true
+
+    } {
+        let a = { value: 0 };
+        a.valueOf = function () {
+            return this.value += 1;
+        };
+        console.log(a == 1 && a == 2 && a == 3); // true
+    }
+
+    {
+        let a = { value: 0 };
+        a.toString = function () {
+            return this.value += 1;
+        };
+        console.log(a == 1 && a == 2 && a == 3); // true
+    }
+}

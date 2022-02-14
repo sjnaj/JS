@@ -1,7 +1,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-28 15:08:49
- * @LastEditTime: 2022-01-29 00:08:36
+ * @LastEditTime: 2022-02-12 19:54:37
  */
 // 大多数情况下，运算符和函数会自动将赋予它们的值转换为正确的类型。
 //console.log(value)和console.log(value) 将 value 转换为字符串类型，然后显示这个值。
@@ -46,7 +46,7 @@ console.log( Boolean(b) ); // true
 console.log(a == b); // true!
 
 console.log( !!null ); // false，等价于下式，第一个非运算将该值转化为布尔类型并取反，第二个非运算再次取反。最后就得到了一个任意值到布尔值的转化。
-console.log(Booolean(null));// false
+console.log(Boolean(null));// false
 
 // typeof null == "object" // JavaScript 编程语言的设计错误
 // typeof function(){} == "function" // 函数被特殊对待

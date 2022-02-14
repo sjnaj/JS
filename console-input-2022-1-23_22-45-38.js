@@ -1,13 +1,13 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-23 22:45:53
- * @LastEditTime: 2022-01-28 14:57:43
+ * @LastEditTime: 2022-02-03 13:11:12
  */
 function greetMe(user) {
     console.log('Hi ' + user);
 }
 greetMe('Alice');
-var x = (+"1.1") + (+"1.1"); //单双引号等价
+var x = +"1.1" + +"1.1"; //单双引号等价
 console.log(`the result is ${1.1+1.1}`); //只能用反引号
 console.log(x);
 console.log(parseFloat("1.1"));
@@ -19,7 +19,7 @@ let isBoss = confirm("Are you the boss?");
 
 alert(isBoss); // 如果“确定”按钮被按下，则显示 true
 var a;
-if ((a + 2) === NaN)
+if (isNaN(a+2))
     console.log("a+2 is a NaN");
 if ((a + 2) === undefined)
     console.log("a+2 is undefine");
@@ -40,7 +40,7 @@ reg2 = new RegExp("\\w+\\s", "g"); //与上面定义等价
 var str = "fee fi fo fum";
 console.log(str.match(reg2)); //返回所有的匹配片段，不返回index等其它信息
 var xArray;
-while (xArray = reg2.exec(str)) //逐个匹配返回
+while ((xArray = reg2.exec(str))) //逐个匹配返回
 {
     console.log(xArray);
     console.log(reg2.lastIndex); //返回下次将要匹配的起始位置

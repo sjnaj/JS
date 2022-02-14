@@ -1,6 +1,15 @@
 {
     "configurations": [
         {
+            "name": "Launch filterRange.js",
+            "program": "${workspaceFolder}/dataType/filterRange.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
@@ -8,10 +17,24 @@
             "file": "${workspaceFolder}/domTest2.html",
             "pathMappings": [
                 {
-                    "url": "file://",
-                    "path": ""
+                    "url": "http://localhost",
+                    "path": "${workspaceFolder}"
                 }
-            ]
+            ],
+            "firefoxArgs": [
+                "-start-debugger-server",
+                "-no-remote"
+            ],
+            "log": {
+                "fileName": "${workspaceFolder}/log.txt",
+                "fileLevel": {
+                    "default": "Debug",
+                },
+                "consoleLevel": {
+                    "PathConversion": "Debug",
+                    "default": "Error"
+                }
+            }
         },
         {
             "type": "firefox",

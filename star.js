@@ -1,7 +1,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-17 19:47:33
- * @LastEditTime: 2022-01-28 17:26:55
+ * @LastEditTime: 2022-02-03 13:12:48
  */
 // 音量大小,0.01-1
 
@@ -91,4 +91,3 @@ for (var i = 0; i < maxStars; i++) {
     new Star();
 }
 
-animation();
