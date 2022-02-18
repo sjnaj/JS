@@ -2,15 +2,9 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-11 01:46:59
- * @LastEditTime: 2022-02-12 13:06:09
+ * @LastEditTime: 2022-02-16 13:26:55
  */
 
-images.requestScreenCapture();
-sleep(1000);
-let capture = captureScreen();
-sleep(500);
-images.clip(capture,560,1320,815-560,1460-1320).saveTo("/sdcard/脚本/image/确认(Submit).png");
-app.viewFile("/sdcard/脚本/image/确认(Submit).png")
 // if (images.findImageInRegion(capture, images.read("/sdcard/脚本/image/确认.png"), 560, 1320, 815 - 560, 1460 - 1320))
 //     toast("填写成功");// let count = 0;//单个视频评论点赞数
 // let likeBtns;

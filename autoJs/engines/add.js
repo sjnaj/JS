@@ -2,11 +2,11 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-12 19:07:32
- * @LastEditTime: 2022-02-12 19:31:30
+ * @LastEditTime: 2022-02-18 00:04:11
  */
 function exec(action, args) {
     args = args || {};
-    engines.execScript(getName(action), getName(action) + "(" + JSON.stringify(args) + ");\n" + action.toString());
+    engines.execScript(getName(action), getName(action) + "(" + JSON.stringify(args) + ");\n" + action.toString());//声明为add({"a":1,"b":2});
 }
 
 function getName(func) {//获取函数名字符串

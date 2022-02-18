@@ -1,7 +1,7 @@
 <!--
  * @Author: fengsc
  * @Date: 2022-01-27 14:10:01
- * @LastEditTime: 2022-01-29 12:18:06
+ * @LastEditTime: 2022-02-18 18:37:10
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +107,7 @@
         // 1. for循环结束时 i = 10
         // 2. for循环结束产生了9个setTimeout
         // 3. for循环是主线程里任务，主线程任务执行完，才去执行setTimeout
-        // 4. setTimeout里面没有i，去上一级作用域寻找i
+        //* 4. setTimeout里面没有i，去上一级作用域寻找i
         // 5. 此时i已经变成了10，所以输出9个10
 
         for (var i = 1; i < 10; i++) {//过时
@@ -131,6 +131,24 @@
         //将 IIFE 分配给一个变量，不是存储 IIFE 本身，而是存储 IIFE 执行后返回的结果。
         //在之前，JavaScript 中只有 var 这一种声明变量的方式，并且这种方式声明的变量没有块级作用域，程序员们就发明了这种模仿块级作用域的方法。
 
+        // 除了使用括号，还有其他方式可以告诉 JavaScript 在这我们指的是函数表达式：
+        // 创建 IIFE 的方法
+
+        (function () {
+            alert("Parentheses around the function");
+        })();
+
+        (function () {
+            alert("Parentheses around the whole thing");
+        }());
+
+        !function () {
+            alert("Bitwise NOT operator starts the expression");
+        }();
+
+        +function () {
+            alert("Unary plus starts the expression");
+        }();
         //以下三个函数等价
         function showMessage(text = 'empty') {
             // 如果 text 为 undefined 或者为假值，那么将其赋值为 'empty'
@@ -145,7 +163,7 @@
             alert(text);
         }
         function showMessage(text) {
-            text = text ?? 'empty';
+            text = text ?? 'empty';//取到第一个非空
             alert(text);
         }
         showMessage(); // empty 
@@ -191,7 +209,7 @@
             () => alert("Greetings!");
 
         welcome();
-//Math.trunc 的 polyfill，还可以导入库来自动实现(例如core-js)
+        //Math.trunc 的 polyfill，还可以导入库来自动实现(例如core-js)
         if (!Math.trunc) { // 如果没有这个函数
             // 实现它
             Math.trunc = function (number) {

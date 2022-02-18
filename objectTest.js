@@ -2,7 +2,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-01-29 12:28:01
- * @LastEditTime: 2022-02-05 11:21:43
+ * @LastEditTime: 2022-02-18 22:56:16
  */
 "use strict";
 {// let user = new Object(); // “构造函数” 的语法
@@ -200,7 +200,7 @@ user.f = sayHi;
 admin.f = sayHi;
 
 // 这两个调用有不同的 this 值
-// 函数内部的 "this" 是“点符号前面”的那个对象
+// *函数内部的 "this" 是“点符号前面”的那个对象
 user.f(); // John（this == user）
 admin.f(); // Admin（this == admin）
 // function sayHi() {

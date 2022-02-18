@@ -3,7 +3,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-10 19:39:08
- * @LastEditTime: 2022-02-12 14:11:47
+ * @LastEditTime: 2022-02-15 11:46:23
  */
 //查看微信聊天特定栏目是否有消息，有的话点击
 
@@ -94,6 +94,10 @@ do {
     }
 }
 while (scrollDown());//下滑寻找
+back();
+sleep(500);
+back();
+sleep(500);
 toast("Done");
 
 // images.findMultiColors(img, firstColor, colors[, options])；

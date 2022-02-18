@@ -2,7 +2,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-05 15:58:56
- * @LastEditTime: 2022-02-07 21:08:15
+ * @LastEditTime: 2022-02-18 23:55:48
  */
 // 一个原始值：
 
@@ -540,6 +540,7 @@ console.log(typeof num);
             let arr = ['Bilbo', 'Gandalf', 'Nazgul'];
 
             let str = arr.join(';'); // 使用分号 ; 将数组粘合成字符串
+            //*glue默认为','
 
             console.log(str); // Bilbo;Gandalf;Nazgul
         }

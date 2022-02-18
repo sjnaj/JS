@@ -3,6 +3,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.2"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "microtime": "^3.0.0"
   }
 }
