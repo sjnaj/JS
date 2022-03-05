@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "microtime": "^3.0.0"
+    "microtime": "^3.0.0",
+    "prompt-sync": "^4.2.0"
   }
 }

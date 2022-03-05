@@ -2,13 +2,13 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-07 23:49:12
- * @LastEditTime: 2022-02-17 20:21:56
+ * @LastEditTime: 2022-02-19 20:25:21
  */
 
 
 //解构赋值 是一种特殊的语法，它使我们可以将数组或对象“拆分”到一系列变量中，因为有时候使用变量更加方便。解构操作对那些具有很多参数和默认值等的函数也很奏效。
 // 我们有一个存放了名字和姓氏的数组
-let arr = ["Ilya", "Kantor"]
+let arr = ["Ilya", "Kantor"];
 
 // 解构赋值
 // sets firstName = arr[0]
@@ -152,7 +152,7 @@ console.log(surname);  // Kantor
             console.log(title);
         }
         showMenu();
-        showMenu("My Menu")
+        showMenu("My Menu");
         showMenu("My Menu", undefined, undefined, ["Item1", "Item2"]);
         //顺序固定
     }

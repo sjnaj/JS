@@ -3,7 +3,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-10 23:23:36
- * @LastEditTime: 2022-02-18 12:26:30
+ * @LastEditTime: 2022-02-19 13:44:55
  */
 auto();
 if (!device.isScreenOn()) {//开屏
@@ -28,13 +28,13 @@ if (!images.requestScreenCapture()) {
 app.launchApp("Auto.js");//目标后台关闭情况下需要从autojs打开
 sleep(2000);
 app.launchApp("企业微信");
-sleep(5000);
+textContains("消息").waitFor();//*打开后需要一段时间接收
 let target = text("A. 疫情防控通").findOne();
 let capture = images.captureScreen();
 sleep(500);
 //查找消息红点
 let point = images.findColorInRegion(capture, "#fff04a3e", target.bounds().left - 60, target.bounds().top, target.bounds().width(), target.bounds().height(), 4);//颜色会有微小变化，-60包围红点区域
-if (point) {
+if (!point) {
     click("A. 疫情防控通");
     text("每日上报提醒").waitFor();
     click("每日上报提醒");
@@ -54,6 +54,7 @@ function fill() {
         "确诊人群？", "密接人员？", "密切接触？", "观察期？", "确诊病例", "值得注意的情况？"];
     let target;
     items.forEach((item, index) => {
+        sleep(500);
         target = textEndsWith(item).findOne();
         log(index);
         switch (index) {

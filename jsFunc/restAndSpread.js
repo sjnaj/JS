@@ -2,7 +2,7 @@
 /*
  * @Author: fengsc
  * @Date: 2022-02-18 11:59:16
- * @LastEditTime: 2022-02-19 00:01:49
+ * @LastEditTime: 2022-02-20 20:30:42
  */
 // 在 JavaScript 中，无论函数是如何定义的，你都可以使用任意数量的参数调用函数。
 // 虽然不会因为传入“过多”的参数而报错。但是当然，在结果中只有前面的参数被计算进去了。
@@ -44,7 +44,7 @@
     {//方法借用(method borrowing)
         //不过，有一种简单的方法可以使用数组的 join 方法：
         //因为原生方法 arr.join(glue) 的内部算法非常简单
-        //*[].join(glue).call(arguments)
+        //*[].join.call(arguments,glue)
         //我们从常规数组 [].join 中获取（借用）join 方法，并使用 [].join.call 在 arguments 的上下文中运行它。
         
     }
@@ -79,7 +79,7 @@
         console.log(Array.from(str));//适用于类数组对象也适用于可迭代对象。
         //因此，对于将一些“东西”转换为数组的任务，Array.from 往往更通用。
     }
-    {       //复制 array/object
+    {       //!浅拷贝 array/object
         let arr = [1, 2, 3];
 
         let arrCopy = [...arr]; // 将数组 spread 到参数列表中
